@@ -483,7 +483,7 @@ main {
     #about {
         width: 90vw;
         max-width: 90vw;
-        min-height: auto;
+        max-height: 80vh;
         margin: 16px auto;
         padding: 12px 0;
         align-items: flex-start;
