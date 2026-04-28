@@ -10,6 +10,7 @@ export default defineConfig({
     vue(),
     vueDevTools(),
   ],
+base: '/Portfolio/Kino',
   server: {
     proxy: {
       '/api': {
