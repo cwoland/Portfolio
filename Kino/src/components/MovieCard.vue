@@ -134,4 +134,32 @@ const imageError = () => {
     background: hsl(175, 21%, 50%);
     transform: scale(0.95);
 }
+@media (max-width: 768px) {
+    .movie-card {
+        padding: 5px;
+    }
+ 
+    .movie-card h2 {
+        font-size: 0.95rem;
+    }
+ 
+    .movie-card p {
+        font-size: 0.7rem;
+    }
+ 
+    .add-to-cart-btn {
+        font-size: 0.7rem;
+        padding: 5px 6px;
+    }
+}
+ 
+@media (max-width: 480px) {
+    .movie-card h2 {
+        font-size: 0.85rem;
+    }
+ 
+    .movie-poster-container {
+        aspect-ratio: 2 / 3; /* taller poster ratio on small screens */
+    }
+}
 </style>

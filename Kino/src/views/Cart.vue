@@ -186,4 +186,49 @@ const goToMovieDetails = (movie) => {
     color: rgb(77, 16, 74);
     transform: scale(1.1);
 }
+@media (max-width: 768px) {
+    .cart {
+        width: 95%;
+        min-height: auto;
+        padding: 12px;
+        border-radius: 10px;
+    }
+ 
+    .cart h1 {
+        font-size: 1.6rem;
+    }
+ 
+    .cart p {
+        font-size: 1rem;
+    }
+ 
+    .cart-items {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        padding: 8px;
+    }
+ 
+    .cart-item img {
+        width: 100%;
+        height: auto;
+    }
+ 
+    .cart-item h3 {
+        font-size: 1rem;
+    }
+ 
+    .cart-item p {
+        font-size: 0.85rem;
+    }
+}
+ 
+@media (max-width: 480px) {
+    .cart-items {
+        grid-template-columns: 1fr;
+    }
+ 
+    .cart-item h3 {
+        font-size: 0.95rem;
+    }
+}
 </style>

@@ -135,7 +135,6 @@ body {
     flex: 1;
     margin: 8px;
     padding: 6px;
-    border: 1px solid hsla(0, 2%, 25%, 0.8);
     border-radius: 10px;
     background-color: hsla(113, 6%, 73%, 0.4);
     backdrop-filter: blur(10px);
@@ -189,7 +188,6 @@ body {
     gap: 8px;
     padding: 16px;
     margin: 20px 10px;
-    border: 1px solid hsl(0, 2%, 25%);
     border-radius: 10px;
     box-shadow: 0 0 8px hsla(90, 2%, 22%, 0.8);
     background-color: hsla(113, 6%, 73%, 0.4);
@@ -209,7 +207,6 @@ body {
     flex: 1 1 calc(50% - 4px);
     margin: 4px;
     padding: 4px;
-    border: 1px solid hsla(0, 2%, 25%, 0.8);
     border-radius: 10px;
     background-color: hsla(113, 6%, 73%, 0.4);
     backdrop-filter: blur(10px);
@@ -246,7 +243,6 @@ body {
     gap: 8px;
     padding: 16px;
     margin: 20px 10px;
-    border: 1px solid hsl(0, 2%, 25%);
     border-radius: 10px;
     box-shadow: 0 0 8px hsla(90, 2%, 22%, 0.8);
     background-color: hsla(113, 6%, 73%, 0.4);
@@ -263,7 +259,6 @@ body {
     max-width: 600px;
     margin: 8px;
     padding: 6px;
-    border: 1px solid hsla(0, 2%, 25%, 0.8);
     border-radius: 10px;
     background-color: hsla(113, 6%, 73%, 0.4);
     backdrop-filter: blur(10px);
@@ -288,14 +283,14 @@ body {
     gap: 8px;
     padding: 16px;
     margin: 20px 10px;
-    border: 1px solid hsl(0, 2%, 25%);
     border-radius: 10px;
     box-shadow: 0 0 8px hsla(90, 2%, 22%, 0.8);
     background-color: hsla(113, 6%, 73%, 0.4);
     backdrop-filter: blur(10px);
 }
 #skills .experience .teaching,
-#skills .experience .translation {
+#skills .experience .translation,
+#skills .experience .front {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -303,7 +298,6 @@ body {
     max-width: 600px;
     margin: 8px;
     padding: 6px;
-    border: 1px solid hsla(0, 2%, 25%, 0.8);
     border-radius: 10px;
     background-color: hsla(113, 6%, 73%, 0.4);
     backdrop-filter: blur(10px);
@@ -344,9 +338,12 @@ body {
     height: 150px;
     object-fit: cover;
     border-radius: 10px;
+    border: 1px solid hsla(0, 2%, 25%, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 }
 #certificates img:hover {
     transform: scale(1.5);
+    transform:translateY(-10%);
     cursor: pointer;
 }
 #certificates h3 {
@@ -361,6 +358,20 @@ body {
     font-style: italic;
 }
 
+#certificates .frontend-certificate,
+#certificates .html-certificate,
+#certificates .css-certificate,
+#certificates .javascript-certificate,
+#certificates .git-certificate {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 6px;
+    padding: auto;
+    gap: 8px;
+}
+
 #contact {
     display: flex;
     flex-direction: column;
@@ -369,11 +380,9 @@ body {
     gap: 16px;
     padding: 16px 0;
     margin: 25px 10px;
-    border: 1px solid hsl(0, 2%, 25%);
     border-radius: 10px;
-    background-color: hsla(113, 6%, 73%, 0.8);
+    background-color: hsla(113, 6%, 73%, 0.4);
     backdrop-filter: blur(10px);
-    box-shadow: 0 0 8px hsla(90, 2%, 22%, 0.8);
 }
 
 #contact h3 {
@@ -524,8 +533,10 @@ main {
     }
 
     #skills {
-        display: flex;
-        flex-direction: column;
+        display: flex !important;
+        flex-direction: column !important;
+        grid-template-rows: none !important;
+        grid-template-columns: none !important;
         width: 90vw;
         max-width: 90vw;
         margin: 16px auto;
@@ -655,7 +666,8 @@ main {
     }
 
     #skills .experience .teaching,
-    #skills .experience .translation {
+    #skills .experience .translation,
+    #skills .experience .front {
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -695,7 +707,10 @@ main {
     }
 
     #certificates img:hover {
-        transform: scale(1.05); /* keep hover subtle on mobile */
+        transform: scale(1.05);
+        transform: translateY(-15%);
+        box-shadow: 0 0 15px rgba(1, 253, 253, 0.9);
+        border: 1px solid rgba(1, 253, 253, 0.9);
     }
 
     #certificates h3 {
@@ -725,7 +740,6 @@ main {
  
     #scrollToTop {
         bottom: 16px;
-        /* centered horizontally */
         left: 50%;
         right: auto;
         transform: translateX(-50%);

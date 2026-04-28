@@ -24,4 +24,22 @@
     font-family: 'Integral CF', sans-serif;
     font-size: 2.5rem;
 }
+@media (max-width: 768px) {
+    .home {
+        width: 90vw;
+        height: auto;
+        min-height: 200px;
+        padding: 30px 16px;
+    }
+ 
+    .home h1 {
+        font-size: 1.8rem;
+    }
+}
+ 
+@media (max-width: 480px) {
+    .home h1 {
+        font-size: 1.4rem;
+    }
+}
 </style>

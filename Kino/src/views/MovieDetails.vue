@@ -161,4 +161,41 @@ onMounted(() => {
     width: 100%;
   }
 }
+@media (max-width: 768px) {
+    .movie-details {
+        padding: 12px;
+    }
+ 
+    .movie-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 16px;
+    }
+ 
+    .movie-content {
+        flex-direction: column;
+        gap: 16px;
+    }
+ 
+    .movie-poster img,
+    .no-image {
+        max-width: 100%;
+        width: 100%;
+    }
+ 
+    .no-image {
+        height: 220px;
+    }
+ 
+    .movie-info p {
+        font-size: 0.95rem;
+        margin: 10px 0;
+    }
+ 
+    .add-to-cart-btn {
+        width: 100%;
+        font-size: 0.95rem;
+    }
+}
 </style>

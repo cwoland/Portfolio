@@ -192,6 +192,46 @@
     font-family: 'Integral CF', sans-serif;
     font-size: 2.5rem;
 }
+@media (max-width: 768px) {
+    .store-header h1 {
+        font-size: 1.6rem;
+    }
+ 
+    .search-container {
+        flex-wrap: wrap;
+    }
+ 
+    .search-container input {
+        width: 100%;
+        flex: unset;
+        font-size: 14px;
+    }
+ 
+    .search-btn,
+    .clear-btn {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+ 
+    .genre-select {
+        width: 100%;
+        font-size: 14px;
+        margin-top: 10px;
+    }
+ 
+    .load-more-btn {
+        width: 90%;
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+ 
+@media (max-width: 480px) {
+    .search-btn,
+    .clear-btn {
+        width: 100%;
+    }
+}
 </style>
 
 <script setup>
