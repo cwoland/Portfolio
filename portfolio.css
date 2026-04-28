@@ -448,3 +448,230 @@ main {
     background-color: hsla(113, 6%, 73%, 1);
     transform: scale(1.1);
 }
+
+
+@media (max-width: 768px) {
+
+    .header {
+        position: sticky;
+        top: 0;
+        padding: 8px 12px;
+        max-height: 56px;
+        justify-content: space-between;
+        gap: 6px;
+    }
+
+    .header .name {
+        font-size: 0.75rem;
+        letter-spacing: 3px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 55%;
+    }
+
+    .header nav {
+        gap: 6px;
+        flex-wrap: nowrap;
+    }
+
+    .header nav svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    #about {
+        width: 90vw;
+        max-width: 90vw;
+        min-height: auto;
+        margin: 16px auto;
+        padding: 12px 0;
+        align-items: flex-start;
+    }
+
+    #about h2 {
+        font-size: 1.4rem;
+        padding: 0 12px;
+    }
+
+    #about p {
+        font-size: 1rem;
+        padding: 10px 12px;
+        max-width: 100%;
+    }
+
+    #projects {
+        flex-direction: column;
+        width: 90vw;
+        max-width: 90vw;
+        margin: 16px auto;
+        padding: 12px;
+        gap: 12px;
+    }
+
+    #projects .planner-project,
+    #projects .mock-spotify,
+    #projects .kinoscope {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    #projects .planner-project img,
+    #projects .mock-spotify img,
+    #projects .kinoscope img {
+        height: 160px;
+    }
+
+        display: flex;
+        flex-direction: column;
+        width: 90vw;
+        max-width: 90vw;
+        margin: 0 auto;
+    }
+
+        flex-direction: column;
+        width: 100%;
+        margin: 10px 0;
+        padding: 12px;
+        gap: 8px;
+    }
+
+    #skills #webdev .html5,
+    #skills #webdev .css3,
+    #skills #webdev .javascript,
+    #skills #webdev .vue,
+    #skills #webdev .git,
+    #skills #webdev .typescript {
+        flex: 1 1 100%;
+        width: 100%;
+        margin: 4px 0;
+    }
+
+    #skills #webdev img {
+        height: 120px;
+        object-fit: contain;
+    }
+
+    #skills #webdev h3 {
+        font-size: 1.1rem;
+    }
+
+    #skills #webdev h4 {
+        font-size: 0.95rem;
+    }
+
+    #skills #languages {
+        flex-direction: column;
+        width: 100%;
+        margin: 10px 0;
+        padding: 12px;
+        gap: 8px;
+    }
+
+    #skills #languages .english,
+    #skills #languages .french,
+    #skills #languages .russian,
+    #skills #languages .spanish {
+        width: 100%;
+        max-width: 100%;
+        margin: 4px 0;
+    }
+
+    #skills #languages img {
+        height: 160px;
+        object-fit: cover;
+    }
+
+    #skills #languages h4 {
+        font-size: 0.95rem;
+    }
+
+    #skills .experience {
+        flex-direction: column;
+        width: 100%;
+        margin: 10px 0;
+        padding: 12px;
+        gap: 8px;
+    }
+
+    #skills .experience .teaching,
+    #skills .experience .translation {
+        width: 100%;
+        max-width: 100%;
+        margin: 4px 0;
+    }
+
+    #skills .experience h3 {
+        font-size: 1.1rem;
+    }
+
+    #skills .experience h4 {
+        font-size: 0.95rem;
+    }
+
+    #skills .experience p {
+        font-size: 0.9rem;
+    }
+ 
+    #certificates {
+        flex-direction: column;
+        align-items: stretch;
+        width: 90vw;
+        max-width: 90vw;
+        margin: 16px auto;
+        padding: 12px;
+        gap: 12px;
+    }
+
+    #certificates img {
+        height: 130px;
+        object-fit: cover;
+        width: 100%;
+    }
+
+    #certificates img:hover {
+        transform: scale(1.05); /* keep hover subtle on mobile */
+    }
+
+    #certificates h3 {
+        font-size: 1rem;
+    }
+
+    #certificates h4 {
+        font-size: 0.9rem;
+    }
+ 
+    #contact {
+        width: 90vw;
+        max-width: 90vw;
+        margin: 16px auto;
+        padding: 12px 0;
+        gap: 10px;
+    }
+
+    #contact a {
+        width: calc(100% - 20px);
+        margin: 4px 10px;
+    }
+
+    #contact h3 {
+        font-size: 1.1rem;
+    }
+ 
+    #scrollToTop {
+        bottom: 16px;
+        /* centered horizontally */
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        width: 44px;
+        height: 44px;
+        font-size: 20px;
+    }
+
+    #scrollToTop:hover {
+        transform: translateX(-50%) scale(1.1);
+    }
+
+}
