@@ -9,19 +9,19 @@ FrontCert.addEventListener('click', () => {
 });
 
 HTMLCert.addEventListener('click', () => {
-    window.open('./public/html-certificate.jpg');
+    window.open('./public/html-cert.jpg');
 });
 
 CSSCert.addEventListener('click', () => {
-    window.open('./public/css-certificate.jpg');
+    window.open('./public/css-cert.jpg');
 });
 
 JSCert.addEventListener('click', () => {
-    window.open('./public/javascript-certificate.jpg');
+    window.open('./public/js-cert.jpg');
 });
 
 GitCert.addEventListener('click', () => {
-    window.open('./public/git-certificate.jpg');
+    window.open('./public/git-cert.jpg');
 });
 
 // Scroll to top button
