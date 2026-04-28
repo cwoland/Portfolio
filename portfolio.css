@@ -35,7 +35,8 @@ body {
 }
 .header .name {
     font-size: 1rem;
-    font-weight: 300;
+    font-weight: lighter;
+    letter-spacing: 5px;
     margin: 0;
 }
 
