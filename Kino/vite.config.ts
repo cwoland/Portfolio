@@ -6,11 +6,11 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/Portfolio/Kino',
   plugins: [
     vue(),
     vueDevTools(),
   ],
-base: '/Portfolio/Kino',
   server: {
     proxy: {
       '/api': {
