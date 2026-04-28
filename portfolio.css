@@ -545,9 +545,6 @@ main {
         margin: 16px auto;
         padding: 0;
         gap: 16px;
-        /* remove any grid properties */
-        grid-template-rows: unset;
-        grid-template-columns: unset;
     }
 
 
