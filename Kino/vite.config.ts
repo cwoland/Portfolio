@@ -6,7 +6,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/Portfolio/Kino',
+  base: '/Portfolio/Kino/dist',
   plugins: [
     vue(),
     vueDevTools(),
