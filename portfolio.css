@@ -10,7 +10,7 @@ body {
 
 body {
     font-family: Arial, sans-serif;
-    background-image: url('./public/background.jpg');
+    background-image: url('./public/background1.jpg');
     background-size: cover;
     color: hsl(270, 76%, 26%);
 }
@@ -30,7 +30,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background-color: hsla(118, 41%, 86%, 0.4);
+    background-color: hsla(0, 0%, 100%, 0.419);
     backdrop-filter: blur(10px);
 }
 .header .name {
@@ -478,7 +478,7 @@ main {
 
     .header .name {
         font-size: 0.65rem;
-        letter-spacing: 3px;
+        letter-spacing: 1px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
