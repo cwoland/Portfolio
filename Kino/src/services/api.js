@@ -1,4 +1,4 @@
-const api_url = '/api/v1.4'
+const api_url = 'https://api.poiskkino.dev/v1.4'
 const api_token = 'ZVK2BNT-XP04A53-KV0E5QH-9CAN0QE'
 
 export const fetchMovies = async (query = '') => {
