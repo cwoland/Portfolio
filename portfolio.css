@@ -96,6 +96,7 @@ body {
     color: hsla(105, 17%, 91%, 0.468);
     font-size: 2rem;
     font-weight: bold;
+    text-align: center;
     order: 1;
     border-radius: 10px;
 }
