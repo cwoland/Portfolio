@@ -83,7 +83,7 @@ body {
     margin: 25px 10px;
     border: 1px solid hsl(0, 2%, 25%);
     border-radius: 10px;
-    background-image: url('./public/about-back.jpg');
+    background: linear-gradient(to top, black 0%, transparent 80%),url('./public/about-back.jpg');
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
@@ -93,11 +93,11 @@ body {
 
 #about h2 {
     margin: 0;
-    color: hsla(105, 17%, 91%, 0.63);
+    color: hsla(105, 17%, 91%, 0.468);
     font-size: 2rem;
     font-weight: bold;
-    font-style: italic;
     order: 1;
+    border-radius: 10px;
 }
 
 #about p {
@@ -109,6 +109,11 @@ body {
     order: 2;
     align-self: flex-start;
     padding: 16px;
+    border-radius: 10px;
+}
+#about .about-me {
+    border-radius: 10px;
+    display: inline;
 }
 #projects {
     display: flex;
