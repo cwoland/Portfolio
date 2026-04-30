@@ -3,7 +3,7 @@
     <div v-if="loading" class="loading">Загрузка...</div>
     <div v-else-if="movie">
       <div class="movie-header">
-        <button @click="goBack" class="back-btn">← Назад</button>
+        <button @click="goBack" class="back-btn">←</button>
         <h1>{{ movie.title }}</h1>
       </div>
 
