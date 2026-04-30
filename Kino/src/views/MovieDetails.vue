@@ -66,136 +66,188 @@ onMounted(() => {
 
 <style scoped>
 .movie-details {
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 30px;
+    width: 75%;
+    max-width: 1200px;
+    background-color: rgba(239, 222, 249, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(77, 16, 74, 0.3);
 }
 
-.loading {
-  text-align: center;
-  font-size: 1.2rem;
-  margin: 50px 0;
+/* ── States ─────────────────────────────────────────────── */
+.loading,
+.error {
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: sans-serif;
+    margin: 50px 0;
+    color: rgb(77, 16, 74);
 }
 
 .error {
-  text-align: center;
-  font-size: 1.2rem;
-  color: red;
-  margin: 50px 0;
+    font-style: italic;
+    opacity: 0.7;
 }
 
+/* ── Header row ─────────────────────────────────────────── */
 .movie-header {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.movie-header h1 {
+    color: rgb(77, 16, 74);
+    font-family: 'Integral CF', sans-serif;
+    font-size: 1.8rem;
+    margin: 0;
 }
 
 .back-btn {
-  padding: 10px 15px;
-  color: hsl(0, 0%, 23%);
-  background-color: hsl(208, 50%, 76%);
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+    padding: 10px 16px;
+    background-color: rgb(77, 16, 74);
+    color: rgb(239, 222, 249);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    flex-shrink: 0;
+    transition: background-color 0.2s, transform 0.2s;
 }
 
 .back-btn:hover {
-  background: #0056b3;
+    background-color: rgb(239, 222, 249);
+    color: rgb(77, 16, 74);
+    transform: scale(1.05);
 }
 
+/* ── Content layout ─────────────────────────────────────── */
 .movie-content {
-  display: flex;
-  gap: 30px;
+    display: flex;
+    gap: 30px;
 }
 
+/* ── Poster ─────────────────────────────────────────────── */
 .movie-poster img {
-  max-width: 300px;
-  height: auto;
-  border-radius: 10px;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid rgba(77, 16, 74, 0.3);
+    display: block;
 }
 
 .no-image {
-  width: 300px;
-  height: 450px;
-  background: #f0f0f0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  color: #666;
+    width: 300px;
+    height: 450px;
+    background-color: rgba(77, 16, 74, 0.1);
+    border: 1px solid rgba(77, 16, 74, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: rgba(77, 16, 74, 0.6);
+    font-family: sans-serif;
+    font-style: italic;
 }
 
+/* ── Info panel ─────────────────────────────────────────── */
 .movie-info {
-  flex: 1;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .movie-info p {
-  margin: 15px 0;
-  line-height: 1.6;
+    color: rgb(77, 16, 74);
+    font-family: sans-serif;
+    font-size: 1rem;
+    margin: 12px 0;
+    line-height: 1.6;
+}
+
+.movie-info strong {
+    font-weight: bold;
 }
 
 .add-to-cart-btn {
-  padding: 12px 20px;
-  background: #28a745;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-  margin-top: 20px;
+    margin-top: auto;
+    padding: 12px 20px;
+    background-color: rgb(77, 16, 74);
+    color: rgb(239, 222, 249);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: sans-serif;
+    transition: background-color 0.2s, transform 0.2s;
+    align-self: flex-start;
 }
 
 .add-to-cart-btn:hover {
-  background: #218838;
+    background-color: rgb(239, 222, 249);
+    color: rgb(77, 16, 74);
+    transform: scale(1.05);
 }
 
-@media (max-width: 768px) {
-  .movie-content {
-    flex-direction: column;
-  }
-
-  .movie-poster img,
-  .no-image {
-    max-width: 100%;
-    width: 100%;
-  }
-}
+/* ── Mobile ─────────────────────────────────────────────── */
 @media (max-width: 768px) {
     .movie-details {
-        padding: 12px;
+        width: 92%;
+        padding: 16px;
+        border-radius: 10px;
     }
- 
+
     .movie-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
         margin-bottom: 16px;
     }
- 
+
+    .movie-header h1 {
+        font-size: 1.2rem;
+    }
+
     .movie-content {
         flex-direction: column;
         gap: 16px;
     }
- 
+
     .movie-poster img,
     .no-image {
         max-width: 100%;
         width: 100%;
     }
- 
+
     .no-image {
         height: 220px;
     }
- 
+
     .movie-info p {
         font-size: 0.95rem;
-        margin: 10px 0;
+        margin: 8px 0;
     }
- 
+
     .add-to-cart-btn {
         width: 100%;
+        align-self: stretch;
         font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .movie-header h1 {
+        font-size: 1rem;
+    }
+
+    .back-btn {
+        padding: 8px 12px;
+        font-size: 0.9rem;
     }
 }
 </style>
