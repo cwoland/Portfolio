@@ -4,17 +4,17 @@ const api_token = 'ZVK2BNT-XP04A53-KV0E5QH-9CAN0QE'
 export const fetchMovies = async (query = '') => {
     try {
         let url;
-        
-        // Check if this is a search query
-        if (query.includes('name=') || query.includes('keyword=') || query.includes('search=')) {
-            // Use search endpoint for search queries with sorting
-            const searchParam = query.replace('name=', '').replace('keyword=', '').replace('search=', '').split('&')[0];
-            url = `${api_url}/movie/search?query=${searchParam}&limit=10&sortField=rating.kp&sortType=-1&rating.kp.gte=0&rating.kp.lte=9.9`;
+
+        if (query.includes('genres.name=')) {
+            const genre = query.split('genres.name=')[1].split('&')[0]
+            url = `${api_url}/movie?limit=10&year=1900-2025&sortField=rating.kp&sortType=-1&rating.kp.gte=0&rating.kp.lte=9.9&genres.name=${genre}` 
+        } else if (query.includes('name=') || query.includes('keyword=') || query.includes('search=')) {
+            const searchParam = query.replace('name=','').replace('keyword=','').replace('search=','').split('&')[0]
+            url = `${api_url}/movie/search?query=${searchParam}&limit=10&sortField=rating.kp&sortType=-1&rating.kp.gte=0&rating.kp.lte=9.9`
         } else {
-            // Use regular movie endpoint for other queries with sorting by rating
-            url = `${api_url}/movie?limit=10&year=1900-2025&sortField=rating.kp&sortType=-1&rating.kp.gte=0&rating.kp.lte=9.9`;
+            url = `${api_url}/movie?limit=10&year=1900-2025&sortField=rating.kp&sortType=-1&rating.kp.gte=0&rating.kp.lte=9.9`
             if (query) {
-                url += `&${query}`;
+                url += `&${query}`
             }
         }
 
