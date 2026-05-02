@@ -1,8 +1,15 @@
 <template>
+        <div class="search-container">
+            <input v-model="search" @keyup.enter="handleSearch" placeholder="Поиск по названию" />
+            <button @click="handleSearch" class="search-btn">🔍</button>
+            <button v-if="search" @click="clearSearch" class="clear-btn">Очистить</button>
+        </div>
     <div class="home">
         <h1>KinoScope</h1>
     </div>
 </template>
+
+<script setup>
 
 <style scoped>
 .home {
