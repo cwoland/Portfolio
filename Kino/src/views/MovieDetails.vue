@@ -130,6 +130,9 @@ onMounted(() => {
 .movie-content {
     display: flex;
     gap: 30px;
+    background-color: rgba(239, 222, 249, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
 }
 
 /* ── Poster ─────────────────────────────────────────────── */
