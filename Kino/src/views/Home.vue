@@ -82,6 +82,51 @@ const clearSearch = () => {
     font-family: 'Integral CF', sans-serif;
     font-size: 2.5rem;
 }
+.search-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.search-container input {
+    padding: 8px 12px;
+    border: 1px solid rgb(77, 16, 74);
+    border-radius: 8px;
+    font-size: 16px;
+    flex: 1;
+}
+
+.search-btn {
+    padding: 8px 16px;
+    color: rgb(239, 222, 249);
+    background-color: rgb(77, 16, 74);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.search-btn:hover {
+    background: rgb(239, 222, 249);
+    color: rgb(77, 16, 74);
+    transform: scale(1.1);
+}
+
+.clear-btn {
+    padding: 8px 16px;
+    color: rgb(239, 222, 249);
+    background: rgb(77, 16, 74);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.clear-btn:hover {
+    background: rgb(239, 222, 249);
+    color: rgb(77, 16, 74);
+    transform: scale(1.1);
+}
 @media (max-width: 768px) {
     .home {
         width: 90vw;
