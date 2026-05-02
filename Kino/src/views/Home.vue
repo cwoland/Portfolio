@@ -138,6 +138,21 @@ const clearSearch = () => {
     .home h1 {
         font-size: 1.8rem;
     }
+    .search-container {
+        flex-wrap: wrap;
+    }
+ 
+    .search-container input {
+        width: 100%;
+        flex: unset;
+        font-size: 14px;
+    }
+ 
+    .search-btn,
+    .clear-btn {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
 }
  
 @media (max-width: 480px) {
