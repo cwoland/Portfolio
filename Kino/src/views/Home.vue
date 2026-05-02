@@ -10,6 +10,57 @@
 </template>
 
 <script setup>
+import { onMounted, computed, ref } from 'vue'
+import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
+import MovieCard from '@/components/MovieCard.vue'
+import MovieDetails from '@/components/MovieDetails.vue'
+
+const store = useStore()
+const router = useRouter()
+const search = ref('')
+
+const movies = computed(() => store.state.movies)
+
+const loading = computed(() => store.state.loading)
+
+onMounted(() => {
+    store.dispatch('loadMovies')
+})
+
+const handleSearch = () => {
+    console.log('handleSearch called with search value:', search.value)
+    if (search.value.trim()) {
+        // Try name parameter again, but with more debugging
+        const query = `name=${encodeURIComponent(search.value)}`
+        console.log('Search query being dispatched:', query)
+        store.dispatch('loadMovies', query)
+    } else {
+        console.log('Empty search, loading all movies')
+        store.dispatch('loadMovies')
+    }
+}
+
+const setGenre = (e) => {
+    const genre = e.target.value
+    if (genre) {
+        const query = `genres.name=${encodeURIComponent(genre)}`
+        console.log('Genre query:', query)
+        store.dispatch('loadMovies', query)
+    } else {
+        store.dispatch('loadMovies')
+    }
+}
+
+const loadMore = () => {
+    store.dispatch('loadMoreMovies')
+}
+
+const clearSearch = () => {
+    search.value = ''
+    store.dispatch('loadMovies')
+}
+</script>
 
 <style scoped>
 .home {
