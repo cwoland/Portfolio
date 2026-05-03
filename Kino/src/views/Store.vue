@@ -90,6 +90,16 @@
     border-radius: 8px;
     border: 1px solid rgba(77, 16, 74, 0.4);
 }
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 25px;
+    padding: 20px;
+    background-color: rgba(239, 222, 249, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    border: 1px solid rgba(77, 16, 74, 0.4);
+}
 
 .movie {
     width: 100%;

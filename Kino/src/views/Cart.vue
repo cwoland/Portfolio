@@ -191,6 +191,7 @@ const goToMovieDetails = (movie) => {
     .cart {
         width: 95%;
         min-height: auto;
+        margin: 10px;
         padding: 12px;
         border-radius: 10px;
     }
