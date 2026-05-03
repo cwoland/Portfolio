@@ -60,12 +60,14 @@
 <script setup>
 import { onMounted, computed, ref } from 'vue'
 import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
 import MovieCard from '@/components/MovieCard.vue'
 import MovieDetails from '@/views/MovieDetails.vue'
 import { fetchRandomMovie, fetchFeaturedMovies } from '@/services/api'
 import SkeletonCard from '@/components/UI/SkeletonCard.vue'
 
 const store = useStore()
+const router = useRouter()
 const search = ref('')
 const dailyMovie = ref(null)
 const featuredMovies = ref([])
