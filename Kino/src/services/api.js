@@ -7,9 +7,9 @@ export const fetchMovies = async (query = '') => {
 
         if (query.includes('genres.name=')) {
             const genre = query.split('genres.name=')[1].split('&')[0]
-            url = `${api_url}/movie?limit=10&year=1900-2025&sortField=rating.kp&sortType=-1&rating.kp.gte=0&rating.kp.lte=9.9&genres.name=${genre}` 
+            url = `${api_url}/movie?limit=10&year=1900-2025&sortField=rating.kp&sortType=-1&rating.kp.gte=0&rating.kp.lte=9.9&genres.name=${genre}`
         } else if (query.includes('name=') || query.includes('keyword=') || query.includes('search=')) {
-            const searchParam = query.replace('name=','').replace('keyword=','').replace('search=','').split('&')[0]
+            const searchParam = query.replace('name=', '').replace('keyword=', '').replace('search=', '').split('&')[0]
             url = `${api_url}/movie/search?query=${searchParam}&limit=10&sortField=rating.kp&sortType=-1&rating.kp.gte=0&rating.kp.lte=9.9`
         } else {
             url = `${api_url}/movie?limit=10&year=1900-2025&sortField=rating.kp&sortType=-1&rating.kp.gte=0&rating.kp.lte=9.9`
@@ -21,9 +21,7 @@ export const fetchMovies = async (query = '') => {
         console.log('=== API CALL DEBUG ===')
         console.log('Full URL:', url)
         console.log('Original query:', query)
-        console.log('Is search query:', query.includes('name=') || query.includes('keyword=') || query.includes('search='))
-        console.log('Sorting applied: rating.kp descending')
-        console.log('Rating filter: 0-9.9 (using gte/lte parameters)')
+        console.log('======================')
 
         const response = await fetch(url, {
             headers: {
@@ -37,11 +35,9 @@ export const fetchMovies = async (query = '') => {
         }
 
         const data = await response.json()
-        
+
         console.log('Response status:', response.status)
         console.log('API Response docs count:', data.docs?.length)
-        console.log('First few movie titles:', data.docs?.slice(0, 3).map(m => m.alternativeName || m.name))
-        console.log('======================')
 
         return data.docs?.map(movie => ({
             id: movie.id,
@@ -56,6 +52,18 @@ export const fetchMovies = async (query = '') => {
         console.error('Error fetching movies:', error)
         return []
     }
+}
+
+export const fetchRandomMovie = async () => {
+    const randomPage = Math.floor(Math.random() * 100) + 1
+    const response = await fetch(
+        `${api_url}/movie?limit=1&page=${randomPage}&sortField=rating.kp&sortType=-1&rating.kp.gte=6`,
+        {
+            headers: { 'X-API-KEY': api_token }
+        }
+    )
+    const data = await response.json()
+    return data.docs?.[0] || null
 }
 
 export const fetchMovieById = async (id) => {

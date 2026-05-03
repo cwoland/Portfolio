@@ -48,11 +48,8 @@ const validate = () => {
 const handleSubmit = () => {
     error.value = '';
 
-    const validationError = validate()
-    if (validationError) {
-        error.value = validationError;
-        return;
-    }
+    const isValid = validate();
+    if (!isValid) return;
 
     const user = {
         name: name.value,
@@ -61,8 +58,9 @@ const handleSubmit = () => {
     }
 
     localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('joinedDate', new Date().toISOString());
     store.commit('setUser', user);
-    router.push('/User')
+    router.push('/')
 }
 </script>
 

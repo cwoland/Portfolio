@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
 import Registration from '@/views/Registration.vue'
 import Store from '@/views/Store.vue'
@@ -16,18 +16,8 @@ const routes = [
 ]
 
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHashHistory(),
     routes
-})
-
-router.beforeEach((to, from, next) => {
-    const isAuth = localStorage.getItem('user') !== null
-
-    if (!isAuth && to.path === '/register') {
-        next('/register')
-    } else {
-        next()
-    }
 })
 
 router.beforeEach((to, from, next) => {

@@ -229,7 +229,7 @@
 @media (max-width: 480px) {
     .search-btn,
     .clear-btn {
-        width: 100%;
+        width: auto;
     }
 }
 </style>
