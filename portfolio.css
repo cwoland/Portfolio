@@ -10,8 +10,8 @@ body {
 
 body {
     font-family: Arial, sans-serif;
-    background-image: url('./public/background1.jpg');
-    background-size: cover;
+    background: #000000;
+    background: linear-gradient(194deg,rgba(0, 0, 0, 1) 0%, rgba(156, 154, 154, 1) 50%, rgba(0, 0, 0, 1) 100%);
     color: hsl(270, 76%, 26%);
 }
 
@@ -336,7 +336,7 @@ body {
     border: 1px solid hsl(0, 2%, 25%);
     border-radius: 10px;
     box-shadow: 0 0 8px hsla(90, 2%, 22%, 0.8);
-    background-color: hsla(113, 6%, 73%, 0.4);
+    background-color: hsla(120, 12%, 97%, 0.4);
     backdrop-filter: blur(10px);
 }
 #certificates img {
@@ -430,7 +430,7 @@ main {
 }
 
 .footer {
-    color: rgba(0, 0, 0, 0.8);
+    color: rgba(255, 255, 255, 0.6);
     text-align: center;
 }
 
