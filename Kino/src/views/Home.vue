@@ -14,7 +14,7 @@ import { onMounted, computed, ref } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
 import MovieCard from '@/components/MovieCard.vue'
-import MovieDetails from '@/components/MovieDetails.vue'
+import MovieDetails from '@/views/MovieDetails.vue'
 
 const store = useStore()
 const router = useRouter()
