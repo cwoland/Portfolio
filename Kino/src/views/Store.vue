@@ -31,8 +31,12 @@
         </select>
         
         <div class="movies">
-            <div v-if="loading" class="loading">Загрузка...</div>
-            <MovieCard v-for="movie in movies" :key="movie.id" :movie="movie" class="movie" />
+            <div v-if="loading" class="movies-grid">
+             <SkeletonCard v-for="n in 10" :key="n" />
+            </div>
+            <div v-else class="movies-grid">
+             <MovieCard v-for="movie in movies" :key="movie.id" :movie="movie" />
+            </div>
         </div>
             <button v-if="!loading && movies.length > 0" @click="loadMore" class="load-more-btn">Загрузить еще</button>
     </div>
@@ -239,6 +243,7 @@ import { onMounted, computed, ref } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
 import MovieCard from '@/components/MovieCard.vue'
+import SkeletonCard from '@/components/UI/SkeletonCard.vue'
 
 const store = useStore()
 const router = useRouter()

@@ -4,7 +4,9 @@
 
         <form @submit.prevent="handleSubmit">
             <input v-model="name" type="text" placeholder="Введите имя" required>
-            <input v-model="email" type="email" placeholder="Введите E-mail" required>
+            <input v-model="surname" type="text" placeholder="Введите фамилию" required>
+            <input v-model="nickname" type="text" placeholder="Введите никнейм" required>
+            <input v-model="email" type="email" placeholder="example@example.com" required>
             <input v-model="password" type="password" placeholder="Введите пароль" required>
 
             <p v-if="error" class="error">{{ error }}</p>
@@ -19,6 +21,8 @@ import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 
 const name = ref('');
+const surname = ref('');
+const nickname = ref('');
 const email = ref('');
 const password = ref('');
 const error = ref('');
@@ -27,8 +31,20 @@ const router = useRouter();
 const store = useStore();
 
 const validate = () => {
-    if (!email.value || !password.value || !name.value) {
+    if (!email.value || !password.value || !name.value || !surname.value || !nickname.value) {
         error.value = 'Пожалуйста, заполните все поля';
+        return false;
+    }
+    if (!/^[a-zA-Zа-яА-ЯёЁ\s]+$/.test(name.value)) {
+        error.value = 'Имя может содержать только буквы и пробелы';
+        return false;
+    }
+    if (!/^[a-zA-Zа-яА-ЯёЁ\s]+$/.test(surname.value)) {
+        error.value = 'Фамилия может содержать только буквы и пробелы';
+        return false;
+    }
+    if (!/^[a-zA-Zа-яА-ЯёЁ\s]+$/.test(nickname.value) || (nickname.value.length < 3) || (nickname.includes(' '))) {
+        error.value = 'Никнейм может содержать только буквы и должен быть не менее 3 символов';
         return false;
     }
 
@@ -53,6 +69,8 @@ const handleSubmit = () => {
 
     const user = {
         name: name.value,
+        surname: surname.value,
+        nickname: nickname.value,
         email: email.value,
         password: password.value
     }

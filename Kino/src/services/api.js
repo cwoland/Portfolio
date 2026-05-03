@@ -66,6 +66,15 @@ export const fetchRandomMovie = async () => {
     return data.docs?.[0] || null
 }
 
+export const fetchFeaturedMovies = async () => {
+    const response = await fetch(
+        `${api_url}/movie?limit=10&sortField=rating.kp&sortType=-1&rating.kp.gte=7`,
+        { headers: { 'X-API-KEY': api_token } }
+    )
+    const data = await response.json()
+    return data.docs || []
+}
+
 export const fetchMovieById = async (id) => {
     try {
         const response = await fetch(`${api_url}/movie/${id}`, {
