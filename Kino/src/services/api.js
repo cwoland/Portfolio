@@ -12,10 +12,14 @@ export const fetchMovies = async (query = '') => {
             const searchParam = query.replace('name=', '').replace('keyword=', '').replace('search=', '').split('&')[0]
             url = `${api_url}/movie/search?query=${searchParam}&limit=10&sortField=rating.kp&sortType=-1&rating.kp.gte=0&rating.kp.lte=9.9`
         } else {
-            url = `${api_url}/movie?limit=10&year=1900-2025&sortField=rating.kp&sortType=-1&rating.kp.gte=0&rating.kp.lte=9.9`
-            if (query) {
-                url += `&${query}`
-            }
+            const yearMatch = query.match(/year=([^&]+)/)
+            const year = yearMatch ? yearMatch[1] : '1900-2025'
+            const typeMatch = query.match(/type=([^&]+)/)
+            const type = typeMatch ? `&type=${typeMatch[1]}` : ''
+            const genreMatch = query.match(/genres\.name=([^&]+)/)
+            const genre = genreMatch ? `&genres.name=${genreMatch[1]}` : ''
+
+    url = `${api_url}/movie?limit=10&year=${year}&sortField=rating.kp&sortType=-1&rating.kp.gte=0&rating.kp.lte=9.9${type}${genre}`
         }
 
         console.log('=== API CALL DEBUG ===')

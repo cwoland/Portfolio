@@ -1,6 +1,22 @@
 <template>
   <div class="movie-details">
-    <div v-if="loading" class="loading">Загрузка...</div>
+    <div v-if="loading" class="skeleton-details">
+    <div class="skeleton-header">
+        <div class="skeleton-block back-skeleton"></div>
+        <div class="skeleton-block title-skeleton"></div>
+    </div>
+    <div class="skeleton-content">
+        <div class="skeleton-block poster-skeleton"></div>
+        <div class="skeleton-info">
+            <div class="skeleton-block line-skeleton"></div>
+            <div class="skeleton-block line-skeleton short"></div>
+            <div class="skeleton-block line-skeleton"></div>
+            <div class="skeleton-block line-skeleton short"></div>
+            <div class="skeleton-block desc-skeleton"></div>
+            <div class="skeleton-block btn-skeleton"></div>
+        </div>
+    </div>
+</div>
     <div v-else-if="movie">
       <div class="movie-header">
         <button @click="goBack" class="back-btn">←</button>
@@ -32,10 +48,12 @@ import { ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 import { fetchMovieById } from '@/services/api.js'
+import { useToast } from '@/services/useToast.js'
 
 const route = useRoute()
 const router = useRouter()
 const store = useStore()
+const { show } = useToast()
 
 const movie = ref(null)
 const loading = ref(true)
@@ -55,7 +73,7 @@ const goBack = () => {
 const addToCart = () => {
   if (movie.value) {
     store.commit('addToCart', movie.value)
-    alert('Фильм добавлен в корзину!')
+    show('Фильм добавлен!', 'success')
   }
 }
 
@@ -198,6 +216,88 @@ onMounted(() => {
     transform: scale(1.05);
 }
 
+.skeleton-block {
+    background: linear-gradient(
+        90deg,
+        rgba(77, 16, 74, 0.2) 25%,
+        rgba(239, 222, 249, 0.15) 50%,
+        rgba(77, 16, 74, 0.2) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 8px;
+}
+
+@keyframes shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.skeleton-details {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.skeleton-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+.back-skeleton {
+    width: 48px;
+    height: 40px;
+    flex-shrink: 0;
+}
+
+.title-skeleton {
+    height: 36px;
+    width: 60%;
+}
+
+.skeleton-content {
+    display: flex;
+    gap: 30px;
+}
+
+.poster-skeleton {
+    width: 300px;
+    min-width: 300px;
+    height: 450px;
+    border-radius: 10px;
+}
+
+.skeleton-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.line-skeleton {
+    height: 20px;
+    width: 100%;
+}
+
+.line-skeleton.short {
+    width: 55%;
+}
+
+.desc-skeleton {
+    height: 120px;
+    width: 100%;
+    border-radius: 8px;
+}
+
+.btn-skeleton {
+    height: 44px;
+    width: 180px;
+    margin-top: auto;
+    border-radius: 8px;
+}
+
 /* ── Mobile ─────────────────────────────────────────────── */
 @media (max-width: 768px) {
     .movie-details {
@@ -241,6 +341,19 @@ onMounted(() => {
         width: 100%;
         align-self: stretch;
         font-size: 0.95rem;
+    }
+    .skeleton-content {
+        flex-direction: column;
+    }
+
+    .poster-skeleton {
+        width: 100%;
+        min-width: unset;
+        height: 300px;
+    }
+
+    .title-skeleton {
+        width: 80%;
     }
 }
 

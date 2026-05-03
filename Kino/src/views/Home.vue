@@ -1,11 +1,11 @@
 <template>
     <div class="home-page">
         <div class="title-wrapper">
-        <h1 class="site-title">KinoScope</h1>
+        <h1 class="site-title">KINOSCOPE</h1>
         </div>
 
         <div class="search-container">
-            <input v-model="search" @keyup.enter="handleSearch" placeholder="Поиск по названию" />
+            <input v-model="search" @keyup.enter="handleSearch" placeholder="Поиск" />
             <button @click="handleSearch" class="search-btn">🔍</button>
             <button v-if="search" @click="clearSearch" class="clear-btn">Очистить</button>
         </div>

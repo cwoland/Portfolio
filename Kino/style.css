@@ -11,6 +11,21 @@ body {
     background-image: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bW92aWV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60");
     background-size: cover;
 }
+body.dark {
+    background: #0f0e0e;
+    color: rgb(239, 222, 249);
+}
+
+body.dark .daily-movie,
+body.dark .profile-card,
+body.dark .movie-details {
+    background: rgba(20, 18, 18, 0.6);
+    border-color: rgba(77, 16, 74, 0.6);
+}
+
+body.dark .movies {
+    background: rgba(20, 18, 18, 0.5);
+}
 .nav {
     display: flex;
     justify-content: space-around;
@@ -42,6 +57,7 @@ body {
     background-color: hsl(170, 33%, 51%);
     transform: scale(1.2);
 }
+
 @media (max-width: 768px) {
     .nav {
         flex-wrap: wrap;

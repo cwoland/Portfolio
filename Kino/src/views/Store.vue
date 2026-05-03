@@ -1,44 +1,80 @@
 <template>
     <div class="store">
         <header class="store-header">
-        <h1>KinoScope</h1>
-        <div class="search-container">
-            <input v-model="search" @keyup.enter="handleSearch" placeholder="Поиск по названию" />
-            <button @click="handleSearch" class="search-btn">🔍</button>
-            <button v-if="search" @click="clearSearch" class="clear-btn">Очистить</button>
-        </div>
+            <h1>KINOSCOPE</h1>
+            <div class="search-container">
+                <input v-model="search" @keyup.enter="handleSearch" placeholder="Поиск" />
+                <button @click="handleSearch" class="search-btn">🔍</button>
+                <button v-if="search" @click="clearSearch" class="clear-btn">Очистить</button>
+            </div>
         </header>
 
-        <select @change="setGenre" class="genre-select">
-            <option class="genre-option" value="">Все жанры</option>
-            <option class="genre-option" value="боевик">Боевик</option>
-            <option class="genre-option" value="комедия">Комедия</option>
-            <option class="genre-option" value="драма">Драма</option>
-            <option class="genre-option" value="ужасы">Ужасы</option>
-            <option class="genre-option" value="фантастика">Научная фантастика</option>
-            <option class="genre-option" value="триллер">Триллер</option>
-            <option class="genre-option" value="мелодрама">Мелодрама</option>
-            <option class="genre-option" value="криминал">Криминал</option>
-            <option class="genre-option" value="детектив">Детектив</option>
-            <option class="genre-option" value="приключения">Приключения</option>
-            <option class="genre-option" value="фэнтези">Фэнтези</option>
-            <option class="genre-option" value="биография">Биография</option>
-            <option class="genre-option" value="история">История</option>
-            <option class="genre-option" value="военный">Военный</option>
-            <option class="genre-option" value="семейный">Семейный</option>
-            <option class="genre-option" value="аниме">Аниме</option>
-            <option class="genre-option" value="мультфильм">Мультфильм</option>
-        </select>
-        
-        <div class="movies">
-            <div v-if="loading" class="movies-grid">
-             <SkeletonCard v-for="n in 10" :key="n" />
-            </div>
-            <div v-else class="movies-grid">
-             <MovieCard v-for="movie in movies" :key="movie.id" :movie="movie" />
+        <div class="filters-row">
+            <select @change="setGenre" class="genre-select">
+                <option value="">Все жанры</option>
+                <option value="боевик">Боевик</option>
+                <option value="комедия">Комедия</option>
+                <option value="драма">Драма</option>
+                <option value="ужасы">Ужасы</option>
+                <option value="фантастика">Научная фантастика</option>
+                <option value="триллер">Триллер</option>
+                <option value="мелодрама">Мелодрама</option>
+                <option value="криминал">Криминал</option>
+                <option value="детектив">Детектив</option>
+                <option value="приключения">Приключения</option>
+                <option value="фэнтези">Фэнтези</option>
+                <option value="биография">Биография</option>
+                <option value="история">История</option>
+                <option value="военный">Военный</option>
+                <option value="семейный">Семейный</option>
+                <option value="аниме">Аниме</option>
+                <option value="мультфильм">Мультфильм</option>
+            </select>
+
+            <div class="year-filter">
+                <label>{{ yearFrom }} — {{ yearTo }}</label>
+                <div class="year-sliders">
+                    <input 
+                        type="range" 
+                        v-model="yearFrom" 
+                        :min="1900" 
+                        :max="yearTo" 
+                        @change="applyFilters"
+                        class="year-slider"
+                    />
+                    <input 
+                        type="range" 
+                        v-model="yearTo" 
+                        :min="yearFrom" 
+                        :max="2025" 
+                        @change="applyFilters"
+                        class="year-slider"
+                    />
+                </div>
             </div>
         </div>
-            <button v-if="!loading && movies.length > 0" @click="loadMore" class="load-more-btn">Загрузить еще</button>
+        <div class="type-tabs">
+            <button
+                v-for="tab in types"
+                :key="tab.value"
+                :class="['type-tab', { active: selectedType === tab.value }]"
+                @click="setType(tab.value)"
+            >
+                {{ tab.label }}
+            </button>
+        </div>
+
+        <div class="movies">
+            <div v-if="loading" class="movies-grid">
+                <SkeletonCard v-for="n in 10" :key="n" />
+            </div>
+            <div v-else class="movies-grid">
+                <MovieCard v-for="movie in movies" :key="movie.id" :movie="movie" />
+            </div>
+        </div>
+        <button v-if="!loading && movies.length > 0" @click="loadMore" class="load-more-btn">
+            Загрузить еще
+        </button>
     </div>
 </template>
 
@@ -196,6 +232,77 @@
     font-family: 'Integral CF', sans-serif;
     font-size: 2.5rem;
 }
+.filters-row {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 4px;
+    margin-bottom: 8px;
+}
+
+/* Year Filter */
+.year-filter {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.year-filter label {
+    color: rgb(239, 222, 249);
+    font-size: 0.85rem;
+    text-align: center;
+    background: rgba(77, 16, 74, 0.3);
+    padding: 4px 12px;
+    border-radius: 20px;
+    align-self: center;
+}
+
+.year-sliders {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.year-slider {
+    width: 100%;
+    accent-color: rgb(77, 16, 74);
+    cursor: pointer;
+}
+
+/* Type Tabs */
+.type-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+
+.type-tab {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(77, 16, 74, 0.4);
+    background: rgba(49, 47, 47, 0.2);
+    color: rgb(200, 180, 220);
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+}
+
+.type-tab:hover {
+    background: rgba(77, 16, 74, 0.3);
+    color: rgb(239, 222, 249);
+}
+
+.type-tab.active {
+    background: rgb(77, 16, 74);
+    color: rgb(239, 222, 249);
+    border-color: rgb(77, 16, 74);
+    font-weight: bold;
+}
+
 @media (max-width: 768px) {
     .store-header h1 {
         font-size: 1.6rem;
@@ -228,6 +335,19 @@
         font-size: 14px;
         padding: 10px;
     }
+    .filters-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .type-tabs {
+        justify-content: center;
+    }
+
+    .type-tab {
+        font-size: 0.78rem;
+        padding: 6px 12px;
+    }
 }
  
 @media (max-width: 480px) {
@@ -248,36 +368,59 @@ import SkeletonCard from '@/components/UI/SkeletonCard.vue'
 const store = useStore()
 const router = useRouter()
 const search = ref('')
+const selectedGenre = ref('')
+const selectedType = ref('')
+const yearFrom = ref(1900)
+const yearTo = ref(2025)
+
+const types = [
+    { label: '🎬 Все', value: '' },
+    { label: '🎥 Фильмы', value: 'movie' },
+    { label: '📺 Сериалы', value: 'tv-series' },
+    { label: '🎠 Мультфильмы', value: 'cartoon' },
+    { label: '⛩ Аниме', value: 'anime' },
+]
 
 const movies = computed(() => store.state.movies)
-
 const loading = computed(() => store.state.loading)
 
 onMounted(() => {
     store.dispatch('loadMovies')
 })
 
-const handleSearch = () => {
-    console.log('handleSearch called with search value:', search.value)
-    if (search.value.trim()) {
-        // Try name parameter again, but with more debugging
-        const query = `name=${encodeURIComponent(search.value)}`
-        console.log('Search query being dispatched:', query)
-        store.dispatch('loadMovies', query)
-    } else {
-        console.log('Empty search, loading all movies')
-        store.dispatch('loadMovies')
+const buildQuery = () => {
+    const parts = []
+    if (selectedGenre.value) {
+        parts.push(`genres.name=${encodeURIComponent(selectedGenre.value)}`)
     }
+    if (selectedType.value) {
+        parts.push(`type=${selectedType.value}`)
+    }
+    parts.push(`year=${yearFrom.value}-${yearTo.value}`)
+    return parts.join('&')
+}
+
+const applyFilters = () => {
+    const query = buildQuery()
+    store.dispatch('loadMovies', query)
 }
 
 const setGenre = (e) => {
-    const genre = e.target.value
-    if (genre) {
-        const query = `genres.name=${encodeURIComponent(genre)}`
-        console.log('Genre query:', query)
+    selectedGenre.value = e.target.value
+    applyFilters()
+}
+
+const setType = (type) => {
+    selectedType.value = type
+    applyFilters()
+}
+
+const handleSearch = () => {
+    if (search.value.trim()) {
+        const query = `name=${encodeURIComponent(search.value)}`
         store.dispatch('loadMovies', query)
     } else {
-        store.dispatch('loadMovies')
+        applyFilters()
     }
 }
 
@@ -287,6 +430,6 @@ const loadMore = () => {
 
 const clearSearch = () => {
     search.value = ''
-    store.dispatch('loadMovies')
+    applyFilters()
 }
 </script>

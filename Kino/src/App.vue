@@ -1,5 +1,6 @@
 <template>
   <Navbar />
+  <Toast />
   <router-view v-slot="{ Component }">
     <Transition name="fade" mode="out-in">
       <component :is="Component" :key="$route.path" />
@@ -9,7 +10,9 @@
 
 <script setup>
 import Navbar from '@/components/Navbar.vue'
+import Toast from '@/components/UI/Toast.vue'
 </script>
+
 <style>
 .fade-enter-active,
 .fade-leave-active {

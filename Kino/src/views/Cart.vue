@@ -1,9 +1,9 @@
 <template>
     <div class="cart">
-        <h1>MovieScope</h1>
+        <h1>KINOSCOPE</h1>
 
         <div v-if="cart.length === 0" class="empty-cart">
-            <p>Корзина пуста</p>
+            <p>Тут пока ничего нет :(</p>
         </div>
 
         <div v-else class="cart-items">
@@ -18,7 +18,7 @@
         </div>
     </div>
     <div class="clearall-btn">
-        <button @click="clearCart">Очистить корзину</button>
+        <button @click="clearCart">Очистить</button>
     </div>
 </template>
 
