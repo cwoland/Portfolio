@@ -100,7 +100,7 @@ const handleSubmit = () => {
 .auth h1 {
     color: rgb(77, 16, 74);
     font-size: 2rem;
-    font-family: 'Integral CF', sans-serif;
+    font-family: sans-serif;
     text-align: center;
     margin: 0 0 24px 0;
 }

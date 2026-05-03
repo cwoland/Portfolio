@@ -96,7 +96,6 @@ onMounted(() => {
     border: 1px solid rgba(77, 16, 74, 0.3);
 }
 
-/* ── States ─────────────────────────────────────────────── */
 .loading,
 .error {
     text-align: center;
@@ -111,7 +110,6 @@ onMounted(() => {
     opacity: 0.7;
 }
 
-/* ── Header row ─────────────────────────────────────────── */
 .movie-header {
     display: flex;
     align-items: center;
@@ -121,7 +119,7 @@ onMounted(() => {
 
 .movie-header h1 {
     color: rgb(77, 16, 74);
-    font-family: 'Integral CF', sans-serif;
+    font-family: sans-serif;
     font-size: 1.8rem;
     margin: 0;
 }
@@ -144,7 +142,6 @@ onMounted(() => {
     transform: scale(1.05);
 }
 
-/* ── Content layout ─────────────────────────────────────── */
 .movie-content {
     display: flex;
     gap: 30px;
@@ -154,7 +151,6 @@ onMounted(() => {
     border-radius: 15px;
 }
 
-/* ── Poster ─────────────────────────────────────────────── */
 .movie-poster img {
     max-width: 300px;
     height: auto;
@@ -177,7 +173,6 @@ onMounted(() => {
     font-style: italic;
 }
 
-/* ── Info panel ─────────────────────────────────────────── */
 .movie-info {
     flex: 1;
     display: flex;
@@ -298,7 +293,6 @@ onMounted(() => {
     border-radius: 8px;
 }
 
-/* ── Mobile ─────────────────────────────────────────────── */
 @media (max-width: 768px) {
     .movie-details {
         width: 92%;

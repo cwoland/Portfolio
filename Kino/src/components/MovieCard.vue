@@ -159,7 +159,7 @@ const imageError = () => {
     }
  
     .movie-poster-container {
-        aspect-ratio: 2 / 3; /* taller poster ratio on small screens */
+        aspect-ratio: 2 / 3;
     }
 }
 </style>

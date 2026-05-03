@@ -326,7 +326,7 @@ const goToMovie = (id) => {
 
 .daily-movie h2 {
     color: rgb(239, 222, 249);
-    font-family: 'Integral CF', sans-serif;
+    font-family: sans-serif;
     margin-bottom: 16px;
     text-align: center;
     font-size: 1.4rem;
@@ -356,7 +356,7 @@ const goToMovie = (id) => {
     color: rgb(239, 222, 249);
     font-size: 1.4rem;
     margin: 0;
-    font-family: 'Integral CF', sans-serif;
+    font-family: sans-serif;
 }
 
 .alt-name {

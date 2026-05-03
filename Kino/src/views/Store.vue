@@ -241,7 +241,6 @@
     margin-bottom: 8px;
 }
 
-/* Year Filter */
 .year-filter {
     display: flex;
     flex-direction: column;
@@ -272,7 +271,6 @@
     cursor: pointer;
 }
 
-/* Type Tabs */
 .type-tabs {
     display: flex;
     gap: 8px;

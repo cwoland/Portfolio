@@ -158,7 +158,7 @@ const logout = () => {
     background: rgb(77, 16, 74);
     color: rgb(239, 222, 249);
     font-size: 2.5rem;
-    font-family: 'Integral CF', sans-serif;
+    font-family: sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -199,7 +199,7 @@ const logout = () => {
 
 h1 {
     color: rgb(239, 222, 249);
-    font-family: 'Integral CF', sans-serif;
+    font-family: sans-serif;
     font-size: 1.8rem;
     margin: 0;
     text-align: center;
@@ -243,7 +243,7 @@ h1 {
     color: rgb(239, 222, 249);
     font-size: 1.8rem;
     font-weight: bold;
-    font-family: 'Integral CF', sans-serif;
+    font-family: sans-serif;
 }
 
 .stat-label {
