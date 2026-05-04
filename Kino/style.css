@@ -29,6 +29,14 @@ body.dark .movie-details {
     border-color: rgba(77, 16, 74, 0.6);
 }
 
+* {
+    font-family: sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Integral CF', sans-serif;
+}
+
 body.dark .movies {
     background: rgba(20, 18, 18, 0.5);
 }
@@ -37,5 +45,8 @@ body.dark .movies {
     body,
     body.dark {
         background-attachment: scroll;
+    }
+    #app {
+        padding-bottom: 80px;
     }
 }

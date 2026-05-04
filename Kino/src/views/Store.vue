@@ -385,7 +385,7 @@
 </style>
 
 <script setup>
-import { onMounted, computed, ref } from 'vue'
+import { onMounted, onUnmounted, computed, ref } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
 import MovieCard from '@/components/MovieCard.vue'
@@ -412,6 +412,10 @@ const loading = computed(() => store.state.loading)
 
 onMounted(() => {
     store.dispatch('loadMovies')
+})
+
+onUnmounted(() => {
+    store.commit('setMovies', [])
 })
 
 const buildQuery = () => {

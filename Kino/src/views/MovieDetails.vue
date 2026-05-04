@@ -49,11 +49,13 @@ import { useRoute, useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 import { fetchMovieById } from '@/services/api.js'
 import { useToast } from '@/services/useToast.js'
+import { useRecentlyWatched } from '@/services/useRecentlyWatched.js'
 
 const route = useRoute()
 const router = useRouter()
 const store = useStore()
 const { show } = useToast()
+const { addRecent } = useRecentlyWatched()
 
 const movie = ref(null)
 const loading = ref(true)
@@ -62,6 +64,7 @@ const fetchMovie = async () => {
   const movieId = route.params.id
   if (movieId) {
     movie.value = await fetchMovieById(movieId)
+    if (movie.value) addRecent(movie.value)
   }
   loading.value = false
 }

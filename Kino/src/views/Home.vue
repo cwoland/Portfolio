@@ -77,6 +77,8 @@ const movies = computed(() => store.state.movies)
 const loading = computed(() => store.state.loading)
 
 onMounted(async ()=> {
+    store.commit('setMovies', [])
+    
     const today = new Date().toDateString()
     const saved = localStorage.getItem('dailyMovie')
     const savedDate = localStorage.getItem('dailyMovieDate')
