@@ -405,6 +405,9 @@ body {
 }
 
 @media (max-width: 768px) {
+    body {
+        margin-bottom: 100px;
+    }
     .site-title {
         font-size: 2.5rem;
     }
