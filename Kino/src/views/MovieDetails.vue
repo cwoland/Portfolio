@@ -297,9 +297,6 @@ onMounted(() => {
 }
 
 @media (max-width: 768px) {
-    body {
-        margin-bottom: 100px;
-    }
     .movie-details {
         width: 92%;
         padding: 16px;

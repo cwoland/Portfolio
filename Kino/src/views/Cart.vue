@@ -56,10 +56,6 @@ const goToMovieDetails = (movie) => {
 </script>
 
 <style scoped>
-body {
-    margin-bottom: 50px;
-}
-
 .cart-page {
     display: flex;
     justify-content: center;
@@ -72,8 +68,8 @@ body {
     max-width: 1000px;
     background-color: rgba(239, 222, 249, 0.4);
     backdrop-filter: blur(10px);
-    border-radius: 8px;
-    border: 1px solid rgba(77, 16, 74, 0.4);
+    border-radius: 15px;
+    border: 1px solid rgba(77, 16, 74, 0.6);
     padding: 30px;
     display: flex;
     flex-direction: column;
@@ -130,7 +126,7 @@ body {
     align-items: center;
     background: rgba(77, 16, 74, 0.15);
     border: 1px solid rgba(77, 16, 74, 0.4);
-    border-radius: 12px;
+    border-radius: 15px;
     padding: 12px;
     cursor: pointer;
     transition: transform 0.2s, border-color 0.2s;

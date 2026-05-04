@@ -118,10 +118,6 @@ const goToMovie = (id) => {
 </script>
 
 <style scoped>
-body {
-    margin-bottom: 100px;
-}
-
 .home-page {
     display: flex;
     flex-direction: column;
@@ -403,9 +399,6 @@ body {
 }
 
 @media (max-width: 768px) {
-    body {
-        margin-bottom: 100px;
-    }
     .site-title {
         font-size: 2.5rem;
     }

@@ -41,6 +41,55 @@ body.dark .movies {
     background: rgba(20, 18, 18, 0.5);
 }
 
+.cart, .auth, .movie-details,
+.profile-card, .movies-grid {
+    border-radius: 15px !important;
+    background-color: rgba(239, 222, 249, 0.4) !important;
+    border: 1px solid rgba(77, 16, 74, 0.6) !important;
+}
+
+.cart h1, .auth h1 {
+    background: linear-gradient(135deg, rgb(77, 16, 74), rgb(239, 222, 249), rgb(77, 16, 74));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    background: rgba(239, 222, 249, 0.6);
+    color: rgb(77, 16, 74);
+    border: 1px solid rgba(77, 16, 74, 0.5);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input::placeholder {
+    color: rgba(77, 16, 74, 0.5) !important;
+}
+
+input:focus {
+    border-color: rgb(77, 16, 74);
+    box-shadow: 0 0 0 3px rgba(77, 16, 74, 0.15);
+    outline: none;
+}
+
+body.dark input[type="text"],
+body.dark input[type="email"],
+body.dark input[type="password"] {
+    background: rgba(49, 47, 47, 0.4);
+    color: rgb(239, 222, 249);
+    border-color: rgba(77, 16, 74, 0.5);
+}
+
+body.dark input::placeholder {
+    color: rgba(239, 222, 249, 0.4) !important;
+}
+
 @media (max-width: 768px) {
     body,
     body.dark {

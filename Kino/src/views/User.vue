@@ -30,7 +30,6 @@
                 </div>
             </div>
 
-            <!-- Recently Watched Button -->
             <button @click="showRecent = true" class="recent-btn">
                 🎬 Недавно просмотренные
             </button>
@@ -55,7 +54,6 @@
         </div>
     </div>
 
-    <!-- Recently Watched Modal -->
     <Teleport to="body">
         <Transition name="modal">
             <div v-if="showRecent" class="modal-overlay" @click.self="showRecent = false">
@@ -197,8 +195,8 @@ const logout = () => {
 .profile-card {
     background-color: rgba(239, 222, 249, 0.6);
     backdrop-filter: blur(10px);
-    border-radius: 8px;
-    border: 1px solid rgba(77, 16, 74, 0.4);
+    border-radius: 15px;
+    border: 1px solid rgba(77, 16, 74, 0.6);
     padding: 40px;
     width: 100%;
     max-width: 500px;
@@ -278,7 +276,7 @@ h1 {
     display: flex;
     gap: 24px;
     background: rgba(77, 16, 74, 0.4);
-    border-radius: 12px;
+    border-radius: 15px;
     padding: 16px 20px;
     width: 100%;
     justify-content: center;
@@ -304,7 +302,6 @@ h1 {
     text-align: center;
 }
 
-/* Recent button */
 .recent-btn {
     width: 100%;
     padding: 10px;
@@ -431,7 +428,6 @@ h1 {
     transform: scale(1.02);
 }
 
-/* Modal */
 .modal-overlay {
     position: fixed;
     inset: 0;
@@ -447,7 +443,7 @@ h1 {
 .modal {
     background: rgba(30, 28, 28, 0.95);
     border: 1px solid rgba(77, 16, 74, 0.5);
-    border-radius: 16px;
+    border-radius: 15px;
     width: 100%;
     max-width: 500px;
     max-height: 80vh;
@@ -573,7 +569,6 @@ h1 {
     background: rgb(200, 30, 30);
 }
 
-/* Modal transition */
 .modal-enter-active,
 .modal-leave-active {
     transition: all 0.3s ease;

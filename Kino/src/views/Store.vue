@@ -316,9 +316,6 @@
 }
 
 @media (max-width: 768px) {
-    body {
-        margin-bottom: 100px;
-    }
     .store {
         padding: 10px;
         padding-bottom: 100px;
