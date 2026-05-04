@@ -97,7 +97,7 @@ onMounted(() => {
     padding: 14px 32px;
     background: rgba(49, 47, 47, 0.2);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(77, 16, 74, 0.3);
+    border-bottom: 1px solid rgba(77, 16, 74, 0.4);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -107,10 +107,12 @@ onMounted(() => {
     display: flex;
     gap: 24px;
     align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .nav a {
-    color: rgb(200, 180, 220);
+    color: rgb(239, 222, 249);
+    background-color: rgb(77, 16, 74);
     text-decoration: none;
     font-size: 0.95rem;
     padding: 6px 14px;
@@ -120,8 +122,8 @@ onMounted(() => {
 }
 
 .nav a:hover {
-    color: rgb(239, 222, 249);
-    background: rgba(77, 16, 74, 0.3);
+    color: rgb(77, 16, 74);
+    background: rgb(239, 222, 249);
 }
 
 .nav a.active {

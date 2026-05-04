@@ -42,14 +42,6 @@
                         @change="applyFilters"
                         class="year-slider"
                     />
-                    <input 
-                        type="range" 
-                        v-model="yearTo" 
-                        :min="yearFrom" 
-                        :max="2025" 
-                        @change="applyFilters"
-                        class="year-slider"
-                    />
                 </div>
             </div>
         </div>

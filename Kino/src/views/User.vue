@@ -134,7 +134,8 @@ const logout = () => {
 }
 
 .profile-card {
-    background-color: rgba(239, 222, 249, 0.4);
+    background-color: rgba(239, 222, 249, 0.6);
+    font-family: Arial, Helvetica, sans-serif;
     backdrop-filter: blur(10px);
     border-radius: 8px;
     border: 1px solid rgba(77, 16, 74, 0.4);
@@ -198,7 +199,7 @@ const logout = () => {
 }
 
 h1 {
-    color: rgb(239, 222, 249);
+    color: rgb(77, 16, 74);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.8rem;
     margin: 0;
@@ -216,7 +217,7 @@ h1 {
 }
 
 .email {
-    color: rgb(200, 180, 220);
+    color: rgb(77, 16, 74);
     font-size: 0.85rem;
     margin: 0;
 }
@@ -224,7 +225,7 @@ h1 {
 .stats {
     display: flex;
     gap: 40px;
-    background: rgba(77, 16, 74, 0.2);
+    background: rgba(77, 16, 74, 0.4);
     border-radius: 12px;
     padding: 16px 30px;
     width: 100%;

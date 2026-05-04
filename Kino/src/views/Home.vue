@@ -50,7 +50,7 @@
                     <p>⭐ {{ dailyMovie.rating?.kp?.toFixed(1) }}</p>
                     <p>🎭 {{ dailyMovie.genres?.map(g => g.name).join(', ') }}</p>
                     <p class="description">{{ dailyMovie.description?.slice(0, 250) }}...</p>
-                    <span class="details-hint">Нажмите для подробностей →</span>
+                    <span class="details-hint">Подробнее →</span>
                 </div>
             </div>
         </div>
@@ -237,10 +237,6 @@ body {
 .carousel-wrapper {
     width: 100%;
     max-width: 900px;
-    background-color: rgba(239, 222, 249, 0.4);
-    backdrop-filter: blur(10px);
-    border-radius: 8px;
-    border: 1px solid rgba(77, 16, 74, 0.4);
 }
 
 .carousel-title {
