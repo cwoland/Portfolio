@@ -116,6 +116,10 @@ const goToMovie = (id) => {
 </script>
 
 <style scoped>
+body {
+    margin-bottom: 100px;
+}
+
 .home-page {
     display: flex;
     flex-direction: column;
@@ -139,7 +143,7 @@ const goToMovie = (id) => {
     margin: 0;
     text-align: center;
     letter-spacing: 2px;
-    background: linear-gradient(135deg, rgb(239, 222, 249), rgb(77, 16, 74));
+    background: linear-gradient(135deg, rgb(77, 16, 74), rgb(239, 222, 249), rgb(77, 16, 74));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -158,14 +162,14 @@ const goToMovie = (id) => {
     padding: 10px 14px;
     border: 1px solid rgb(77, 16, 74);
     border-radius: 8px;
-    background: rgba(49, 47, 47, 0.3);
-    color: rgb(239, 222, 249);
+    background: rgb(239, 222, 249);
+    color: rgb(77, 16, 74);
     font-size: 16px;
     flex: 1;
 }
 
 .search-container input::placeholder {
-    color: rgb(180, 160, 200);
+    color: rgb(239, 222, 249);
 }
 
 .search-btn {
@@ -233,10 +237,14 @@ const goToMovie = (id) => {
 .carousel-wrapper {
     width: 100%;
     max-width: 900px;
+    background-color: rgba(239, 222, 249, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    border: 1px solid rgba(77, 16, 74, 0.4);
 }
 
 .carousel-title {
-    color: rgb(239, 222, 249);
+    color: rgb(77, 16, 74);
     font-family: 'Integral CF', sans-serif;
     font-size: 1.2rem;
     margin-bottom: 12px;

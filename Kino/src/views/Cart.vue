@@ -56,6 +56,10 @@ const goToMovieDetails = (movie) => {
 </script>
 
 <style scoped>
+body {
+    margin-bottom: 50px;
+}
+
 .cart-page {
     display: flex;
     justify-content: center;
@@ -66,9 +70,9 @@ const goToMovieDetails = (movie) => {
 .cart {
     width: 100%;
     max-width: 1000px;
-    background: rgba(49, 47, 47, 0.2);
+    background-color: rgba(239, 222, 249, 0.4);
     backdrop-filter: blur(10px);
-    border-radius: 15px;
+    border-radius: 8px;
     border: 1px solid rgba(77, 16, 74, 0.4);
     padding: 30px;
     display: flex;
@@ -84,7 +88,6 @@ const goToMovieDetails = (movie) => {
     margin: 0;
 }
 
-/* Empty state */
 .empty-cart {
     display: flex;
     flex-direction: column;
@@ -94,7 +97,7 @@ const goToMovieDetails = (movie) => {
 }
 
 .empty-cart p {
-    color: rgb(200, 180, 220);
+    color: rgb(77, 16, 74);
     font-size: 1.2rem;
 }
 
@@ -114,7 +117,6 @@ const goToMovieDetails = (movie) => {
     transform: scale(1.05);
 }
 
-/* Cart items grid */
 .cart-items {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

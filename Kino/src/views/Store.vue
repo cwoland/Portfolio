@@ -79,26 +79,30 @@
 </template>
 
 <style scoped>
-.movies {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 25px;
-    margin-top: 20px;
-    padding: 20px;
-    background-color: rgba(239, 222, 249, 0.4);
-    backdrop-filter: blur(10px);
-    border-radius: 8px;
-    border: 1px solid rgba(77, 16, 74, 0.4);
+.store {
+    padding: 16px;
+    box-sizing: border-box;
+    width: 100%;
+    overflow-x: hidden;
 }
+
+.movies {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
 .movies-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 25px;
-    padding: 20px;
+    gap: 16px;
+    padding: 16px;
     background-color: rgba(239, 222, 249, 0.4);
     backdrop-filter: blur(10px);
     border-radius: 8px;
     border: 1px solid rgba(77, 16, 74, 0.4);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .movie {
@@ -236,7 +240,11 @@
     color: rgb(77, 16, 74);
 }
 .store-header h1 {
-    color: rgb(77, 16, 74);
+    background: linear-gradient(135deg, rgb(77, 16, 74), rgb(239, 222, 249), rgb(77, 16, 74));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 15px rgba(239, 222, 249, 0.3));
     font-size: 2.5em;
     text-align: center;
     font-family: 'Integral CF', sans-serif;
@@ -253,10 +261,11 @@
 
 .year-filter {
     display: flex;
-    flex-direction: column;
-    gap: 6px;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
     flex: 1;
-    min-width: 200px;
+    min-width: 0;
 }
 
 .year-filter label {
@@ -264,15 +273,18 @@
     font-size: 0.85rem;
     text-align: center;
     background: rgba(77, 16, 74, 0.3);
-    padding: 4px 12px;
+    padding: 4px 10px;
     border-radius: 20px;
-    align-self: center;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .year-sliders {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 2px;
+    flex: 1;
+    min-width: 0;
 }
 
 .year-slider {
@@ -292,15 +304,15 @@
     padding: 8px 16px;
     border-radius: 20px;
     border: 1px solid rgba(77, 16, 74, 0.4);
-    background: rgba(49, 47, 47, 0.2);
-    color: rgb(200, 180, 220);
+    background: rgb(239, 222, 249);
+    color: rgb(77, 16, 74);
     cursor: pointer;
     font-size: 0.85rem;
     transition: all 0.2s;
 }
 
 .type-tab:hover {
-    background: rgba(77, 16, 74, 0.3);
+    background: rgb(77, 16, 74);
     color: rgb(239, 222, 249);
 }
 
@@ -312,6 +324,30 @@
 }
 
 @media (max-width: 768px) {
+    .store {
+        padding: 10px;
+        padding-bottom: 100px;
+    }
+
+    .filters-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .year-filter {
+        width: 100%;
+    }
+
+    .movies-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .type-tabs {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
     .store-header h1 {
         font-size: 1.6rem;
     }
@@ -342,19 +378,6 @@
         width: 90%;
         font-size: 14px;
         padding: 10px;
-    }
-    .filters-row {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .type-tabs {
-        justify-content: center;
-    }
-
-    .type-tab {
-        font-size: 0.78rem;
-        padding: 6px 12px;
     }
 }
  

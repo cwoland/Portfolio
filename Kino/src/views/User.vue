@@ -134,9 +134,9 @@ const logout = () => {
 }
 
 .profile-card {
-    background: rgba(49, 47, 47, 0.2);
+    background-color: rgba(239, 222, 249, 0.4);
     backdrop-filter: blur(10px);
-    border-radius: 20px;
+    border-radius: 8px;
     border: 1px solid rgba(77, 16, 74, 0.4);
     padding: 40px;
     width: 100%;
@@ -199,7 +199,7 @@ const logout = () => {
 
 h1 {
     color: rgb(239, 222, 249);
-    font-family: sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 1.8rem;
     margin: 0;
     text-align: center;
@@ -243,12 +243,13 @@ h1 {
     color: rgb(239, 222, 249);
     font-size: 1.8rem;
     font-weight: bold;
-    font-family: sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .stat-label {
     color: rgb(200, 180, 220);
     font-size: 0.8rem;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .toggle-edit-btn {
@@ -306,8 +307,8 @@ h1 {
 .save-btn {
     width: 100%;
     padding: 10px;
-    background: rgb(77, 16, 74);
-    color: rgb(239, 222, 249);
+    background: rgb(239, 222, 249);
+    color: rgb(77, 16, 74);
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -316,8 +317,8 @@ h1 {
 }
 
 .save-btn:hover {
-    background: rgb(239, 222, 249);
-    color: rgb(77, 16, 74);
+    background: rgb(77, 16, 74);
+    color: rgb(239, 222, 249);
     transform: scale(1.02);
 }
 
@@ -330,7 +331,7 @@ h1 {
 .danger-btn {
     flex: 1;
     padding: 10px;
-    background: rgba(150, 20, 20, 0.6);
+    background: rgba(150, 20, 20, 0.8);
     color: rgb(239, 222, 249);
     border: none;
     border-radius: 8px;
@@ -347,8 +348,8 @@ h1 {
 .logout-btn {
     flex: 1;
     padding: 10px;
-    background: rgba(77, 16, 74, 0.4);
-    color: rgb(239, 222, 249);
+    background: rgb(239, 222, 249);
+    color: rgb(77, 16, 74);
     border: 1px solid rgb(77, 16, 74);
     border-radius: 8px;
     cursor: pointer;
@@ -358,6 +359,7 @@ h1 {
 
 .logout-btn:hover {
     background: rgb(77, 16, 74);
+    color: rgb(239, 222, 249);
     transform: scale(1.02);
 }
 
