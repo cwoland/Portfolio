@@ -23,8 +23,15 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
 const publicPages = ['/Registration']
 const authRequired = !publicPages.includes(to.path)
-const loggedIn = localStorage.getItem('user')
 
+let loggedIn = false
+try {
+    const stored = localStorage.setItem('user')
+    loggedIn = stored && JSON.parse(stored) !== null
+} catch (e) {
+    localStorage.removeItem('user')
+    loggedIn = false
+}
 if (authRequired && !loggedIn) {
     return next('/Registration')
 }

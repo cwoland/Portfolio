@@ -3,8 +3,24 @@ import { fetchMovies } from '@/services/api'
 
 export default createStore({
     state: {
-        user: JSON.parse(localStorage.getItem('user')) || null,  // ← fix this line
-        cart: JSON.parse(localStorage.getItem('cart')) || [],    // ← and this
+        user: (() => {
+             try {
+            const stored = localStorage.getItem('user')
+            return stored ? JSON.parse(stored) : null
+                 } catch (e) {
+            localStorage.removeItem('user')
+            return null
+                             }
+            })(),
+        cart: (() => {
+              try {
+                  const stored = localStorage.getItem('cart')
+                  return stored ? JSON.parse(stored) : []
+                  } catch (e) {
+                    localStorage.removeItem('cart')
+                    return []
+                              }
+                    })(),
         movies: [],
         loading: false,
         currentPage: 1,
