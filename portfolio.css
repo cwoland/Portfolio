@@ -549,8 +549,6 @@ main {
         gap: 16px;
     }
 
-
-    /* ── WEBDEV PANEL ───────────────────────────────────────── */
     #skills #webdev {
         display: flex;
         flex-direction: column;
@@ -567,7 +565,6 @@ main {
         margin-bottom: 6px;
     }
 
-    /* Each tech card: row layout — icon left, text right */
     #skills #webdev .html5,
     #skills #webdev .css3,
     #skills #webdev .javascript,
@@ -594,18 +591,22 @@ main {
     }
 
     #skills #webdev h4 {
+        min-width: 90px;
         font-size: 0.95rem;
+        font-weight: 600;
         margin: 0 0 4px 0;
+        text-align: left;
     }
 
     #skills #webdev p {
+        flex: 1;
+        line-height: 1.4;
+        max-width: 100%;
         font-size: 0.8rem;
         margin: 0;
         text-align: left;
     }
 
-
-    /* ── LANGUAGES PANEL ────────────────────────────────────── */
     #skills #languages {
         display: flex;
         flex-direction: column;
@@ -622,7 +623,6 @@ main {
         margin-bottom: 6px;
     }
 
-    /* Language cards: row layout — flag left, label right */
     #skills #languages .english,
     #skills #languages .french,
     #skills #languages .russian,
@@ -652,8 +652,6 @@ main {
         text-align: left;
     }
 
-
-    /* ── EXPERIENCE PANEL ───────────────────────────────────── */
     #skills .experience {
         display: flex;
         flex-direction: column;
