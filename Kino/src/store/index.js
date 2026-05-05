@@ -40,6 +40,9 @@ export default createStore({
             state.currentQuery = query
             state.currentPage = 1
         },
+        setPage(state, page) {
+            state.currentPage = page
+        },
         incrementPage(state) {
             state.currentPage++
         }    },
@@ -47,20 +50,17 @@ export default createStore({
         async loadMovies({ commit }, query = '') {
             commit('setLoading', true)
             commit('setCurrentQuery', query)
-            const movies = await fetchMovies(query)
+            commit('setPage', 1)
+            const movies = await fetchMovies(query, 1)
             commit('setMovies', movies)
             commit('setLoading', false)
         },
         async loadMoreMovies({ commit, state }) {
             commit('setLoading', true)
             const nextPage = state.currentPage + 1
-            // Kinopoisk API might use offset instead of page
-            const pageParam = `page=${nextPage}`
-            const query = state.currentQuery ? `${state.currentQuery}&${pageParam}` : pageParam
-            console.log('Load more query:', query)
-            const movies = await fetchMovies(query)
+            const movies = await fetchMovies(state.currentQuery, nextPage)
             commit('addMovies', movies)
-            commit('incrementPage')
+            commit('setPage', nextPage)
             commit('setLoading', false)
         }
     }

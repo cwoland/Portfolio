@@ -407,12 +407,10 @@ const types = [
 const movies = computed(() => store.state.movies)
 const loading = computed(() => store.state.loading)
 
-onMounted(() => {
-    store.dispatch('loadMovies')
-})
-
-onUnmounted(() => {
-    store.commit('setMovies', [])
+onMounted(async () => {
+    if (store.state.movies.length === 0) {
+    await store.dispatch('loadMovies')
+    }
 })
 
 const buildQuery = () => {

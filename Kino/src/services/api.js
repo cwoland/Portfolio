@@ -1,7 +1,7 @@
 const api_url = 'https://api.poiskkino.dev/v1.4'
 const api_token = 'ZVK2BNT-XP04A53-KV0E5QH-9CAN0QE'
 
-export const fetchMovies = async (query = '') => {
+export const fetchMovies = async (query = '', page = 1) => {
     try {
         let url;
 
@@ -22,11 +22,6 @@ export const fetchMovies = async (query = '') => {
     url = `${api_url}/movie?limit=10&year=${year}&sortField=rating.kp&sortType=-1&rating.kp.gte=0&rating.kp.lte=9.9${type}${genre}`
         }
 
-        console.log('=== API CALL DEBUG ===')
-        console.log('Full URL:', url)
-        console.log('Original query:', query)
-        console.log('======================')
-
         const response = await fetch(url, {
             headers: {
                 'X-API-KEY': api_token
@@ -39,9 +34,6 @@ export const fetchMovies = async (query = '') => {
         }
 
         const data = await response.json()
-
-        console.log('Response status:', response.status)
-        console.log('API Response docs count:', data.docs?.length)
 
         return data.docs?.map(movie => ({
             id: movie.id,
